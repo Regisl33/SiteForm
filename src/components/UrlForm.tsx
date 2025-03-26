@@ -5,6 +5,7 @@ import {
   TextField,
   Tooltip,
   IconButton,
+  Typography,
 } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import { ChangeEvent } from "react";
@@ -32,7 +33,7 @@ const UrlForm = ({
     }
   };
   const radioContainer = (
-    <div className="flex justify-center items-center">
+    <fieldset className="flex justify-center items-center">
       <RadioGroup
         row
         aria-labelledby="Radio pour l'extension de l'url"
@@ -50,23 +51,28 @@ const UrlForm = ({
           <InfoIcon fontSize="large" />
         </IconButton>
       </Tooltip>
-    </div>
+    </fieldset>
   );
 
   const content = (
-    <fieldset className="flex justify-center items-center gap-[5%] border border-slate-900/50 dark:border-slate-50/50 rounded-lg p-5">
-      <TextField
-        id="url-keywords"
-        label="Mots-Clés Url"
-        variant="outlined"
-        helperText="Entrer les mots clé pour votre URL"
-        value={urlKeyword}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          setUrlKeyword(e.target.value.toLowerCase());
-        }}
-      />
-      {radioContainer}
-    </fieldset>
+    <>
+      <Typography variant="h4" component="h2">
+        Configuration de l'URL
+      </Typography>
+      <section className="flex justify-center items-center gap-[5%] border border-slate-900/50 dark:border-slate-50/50 rounded-lg p-5 m-5">
+        <TextField
+          id="url-keywords"
+          label="Mots-Clés Url"
+          variant="outlined"
+          helperText="Entrer les mots clé pour votre URL"
+          value={urlKeyword}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setUrlKeyword(e.target.value.toLowerCase());
+          }}
+        />
+        {radioContainer}
+      </section>
+    </>
   );
   return content;
 };

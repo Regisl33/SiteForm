@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { ChangeEvent } from "react";
 
 type propsType = {
@@ -15,28 +15,33 @@ const MetaForm = ({
   setDescription,
 }: propsType) => {
   return (
-    <fieldset className="flex flex-col justify-center items-center gap-[10px] border border-slate-900/50 dark:border-slate-50/50 rounded-lg p-5">
-      <TextField
-        id="Titre"
-        label="Titre"
-        variant="outlined"
-        value={title}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          setTitle(e.target.value.toLowerCase());
-        }}
-      />
-      <TextField
-        id="Description"
-        label="Description"
-        variant="outlined"
-        multiline
-        minRows={4}
-        value={description}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          setDescription(e.target.value);
-        }}
-      />
-    </fieldset>
+    <>
+      <Typography variant="h4" component="h2">
+        Titre et Description du site
+      </Typography>
+      <section className="flex flex-col justify-center items-center gap-[10px] border border-slate-900/50 dark:border-slate-50/50 rounded-lg p-5 m-5">
+        <TextField
+          id="Titre"
+          label="Titre"
+          variant="outlined"
+          value={title}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setTitle(e.target.value.toLowerCase());
+          }}
+        />
+        <TextField
+          id="Description"
+          label="Description"
+          variant="outlined"
+          multiline
+          minRows={4}
+          value={description}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setDescription(e.target.value);
+          }}
+        />
+      </section>
+    </>
   );
 };
 
