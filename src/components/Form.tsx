@@ -2,6 +2,7 @@ import { useState } from "react";
 import UrlForm from "./UrlForm";
 import MetaForm from "./MetaForm";
 import OpenGraph from "./OpenGraph";
+import SocialMedia from "./SocialMedia";
 
 const Form = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -14,6 +15,11 @@ const Form = () => {
   const [ogUrl, setOgUrl] = useState("");
   const [ogLocale, setOgLocale] = useState("");
   const [ogDescription, setOgDescription] = useState("");
+  const [facebookUrl, setFacebookUrl] = useState("");
+  const [instagramUrl, setInstagramUrl] = useState("");
+  const [xUrl, setXUrl] = useState("");
+  const [linkedInUrl, setLinkedInUrl] = useState("");
+  const [gitHubUrl, setGitHubUrl] = useState("");
 
   return (
     <form>
@@ -41,6 +47,18 @@ const Form = () => {
         setOgLocale={setOgLocale}
         ogDescription={ogDescription}
         setOgDescription={setOgDescription}
+      />
+      <SocialMedia
+        facebookUrl={facebookUrl}
+        setFacebookUrl={setFacebookUrl}
+        instagramUrl={instagramUrl}
+        setInstagramUrl={setInstagramUrl}
+        xUrl={xUrl}
+        setXUrl={setXUrl}
+        linkedInUrl={linkedInUrl}
+        setLinkedInUrl={setLinkedInUrl}
+        gitHubUrl={gitHubUrl}
+        setGitHubUrl={setGitHubUrl}
       />
     </form>
   );
