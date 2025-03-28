@@ -3,6 +3,7 @@ import UrlForm from "./UrlForm";
 import MetaForm from "./MetaForm";
 import OpenGraph from "./OpenGraph";
 import SocialMedia from "./SocialMedia";
+import Body from "./Body";
 
 const Form = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,6 +21,9 @@ const Form = () => {
   const [xUrl, setXUrl] = useState("");
   const [linkedInUrl, setLinkedInUrl] = useState("");
   const [gitHubUrl, setGitHubUrl] = useState("");
+  const [titleH1, setTitleH1] = useState("");
+  const [text, setText] = useState("");
+  const [copyright, setCopyright] = useState(false);
 
   return (
     <form>
@@ -60,6 +64,15 @@ const Form = () => {
         gitHubUrl={gitHubUrl}
         setGitHubUrl={setGitHubUrl}
       />
+      <Body
+        titleH1={titleH1}
+        setTitleH1={setTitleH1}
+        text={text}
+        setText={setText}
+        copyright={copyright}
+        setCopyright={setCopyright}
+      />
+      <p>{errorMessage}</p>
     </form>
   );
 };
