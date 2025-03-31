@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import { ChangeEvent } from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 type propsType = {
   urlKeyword: string;
@@ -25,6 +26,7 @@ const UrlForm = ({
   setUrlExtension,
   setErrorMessage,
 }: propsType) => {
+  const darkTheme = useMediaQuery("(prefers-color-scheme: dark)");
   const handleRadio = (value: string) => {
     if (value === ".ca" || value === ".com") {
       setUrlExtension(value);
@@ -43,10 +45,44 @@ const UrlForm = ({
           handleRadio(e.target.value)
         }
       >
-        <FormControlLabel value=".ca" control={<Radio />} label=".ca" />
-        <FormControlLabel value=".com" control={<Radio />} label=".com" />
+        <FormControlLabel
+          value=".ca"
+          control={
+            <Radio
+              sx={{
+                "& .MuiSvgIcon-root": {
+                  fontSize: 28,
+                },
+                padding: 2,
+              }}
+            />
+          }
+          label=".ca"
+        />
+        <FormControlLabel
+          value=".com"
+          control={
+            <Radio
+              sx={{
+                "& .MuiSvgIcon-root": {
+                  fontSize: 28,
+                },
+                padding: 2,
+              }}
+            />
+          }
+          label=".com"
+        />
       </RadioGroup>
-      <Tooltip title=".ca est recommandé pour les sites canadiens, .com en revanche n'envoi aucune indication par rapport a la provenance du site">
+      <Tooltip
+        title={
+          <p className="p-3 tracking-wider text-sm">
+            .ca est recommandé pour les sites canadiens, .com en revanche
+            n'envoi aucune indication par rapport a la provenance du site
+          </p>
+        }
+        arrow
+      >
         <IconButton>
           <InfoIcon fontSize="large" />
         </IconButton>
@@ -56,11 +92,26 @@ const UrlForm = ({
 
   const content = (
     <>
-      <Typography variant="h4" component="h2">
+      <Typography
+        sx={
+          darkTheme
+            ? {
+                letterSpacing: "1px",
+                textShadow: "1px 2px 4px rgb(255 255 255 / 19%)",
+              }
+            : {
+                letterSpacing: "1px",
+                textShadow: "1px 2px 4px rgb(0 0 0 / 50%);",
+              }
+        }
+        variant="h6"
+        component="h2"
+      >
         Configuration de l'URL
       </Typography>
-      <section className="flex justify-center items-center gap-[5%] border border-slate-900/50 dark:border-slate-50/50 rounded-lg p-5 m-5">
+      <section className="flex flex-col md:flex-row justify-around items-center border border-slate-900/50 dark:border-slate-50/50 shadow-xs shadow-slate-900 dark:shadow-slate-50 rounded-lg p-5 m-5">
         <TextField
+          sx={{ width: "320px" }}
           id="url-keywords"
           label="Mots-Clés Url"
           variant="outlined"

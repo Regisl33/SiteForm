@@ -9,6 +9,7 @@ import {
 import InfoIcon from "@mui/icons-material/Info";
 import { CloudUpload } from "@mui/icons-material";
 import { ChangeEvent } from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 type propsType = {
   ogTitle: string;
@@ -35,6 +36,7 @@ const OpenGraph = ({
   ogDescription,
   setOgDescription,
 }: propsType) => {
+  const darkTheme = useMediaQuery("(prefers-color-scheme: dark)");
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
     clipPath: "inset(50%)",
@@ -49,15 +51,32 @@ const OpenGraph = ({
 
   return (
     <>
-      <Typography variant="h4" component="h2">
+      <Typography
+        sx={
+          darkTheme
+            ? {
+                letterSpacing: "1px",
+                textShadow: "1px 2px 4px rgb(255 255 255 / 19%)",
+              }
+            : {
+                letterSpacing: "1px",
+                textShadow: "1px 2px 4px rgb(0 0 0 / 50%);",
+              }
+        }
+        variant="h6"
+        component="h2"
+      >
         Open Graph{" "}
-        <Tooltip title="Plus d'info...">
+        <Tooltip
+          title={<p className="p-3 tracking-wider text-sm">Plus d'info...</p>}
+          arrow
+        >
           <IconButton>
             <InfoIcon fontSize="large" />
           </IconButton>
         </Tooltip>
       </Typography>
-      <section className="flex flex-col justify-center items-center gap-[10px] border border-slate-900/50 dark:border-slate-50/50 rounded-lg p-5 m-5">
+      <section className="flex flex-col justify-center items-center gap-[10px] border border-slate-900/50 dark:border-slate-50/50 shadow-xs shadow-slate-900 dark:shadow-slate-50 rounded-lg p-5 m-5">
         <div className="m-4 flex gap-5">
           <TextField
             id="ogTitre"
@@ -115,6 +134,7 @@ const OpenGraph = ({
           </Button>
         </div>
         <TextField
+          sx={{ maxWidth: "400px", width: "90%" }}
           id="og-descripton"
           label="Descripton"
           variant="outlined"
