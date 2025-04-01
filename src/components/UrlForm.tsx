@@ -1,15 +1,8 @@
-import {
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  TextField,
-  Tooltip,
-  IconButton,
-  Typography,
-} from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
+import { TextField, Typography } from "@mui/material";
+
 import { ChangeEvent } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import UrlRadio from "./UrlRadio";
 
 type propsType = {
   urlKeyword: string;
@@ -27,68 +20,6 @@ const UrlForm = ({
   setErrorMessage,
 }: propsType) => {
   const darkTheme = useMediaQuery("(prefers-color-scheme: dark)");
-  const handleRadio = (value: string) => {
-    if (value === ".ca" || value === ".com") {
-      setUrlExtension(value);
-    } else {
-      setErrorMessage("Mauvais Paramètres pour l'extension de l'url");
-    }
-  };
-  const radioContainer = (
-    <fieldset className="flex justify-center items-center">
-      <RadioGroup
-        row
-        aria-labelledby="Radio pour l'extension de l'url"
-        name="urlExtensionRadio"
-        value={urlExtension}
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          handleRadio(e.target.value)
-        }
-      >
-        <FormControlLabel
-          value=".ca"
-          control={
-            <Radio
-              sx={{
-                "& .MuiSvgIcon-root": {
-                  fontSize: 28,
-                },
-                padding: 2,
-              }}
-            />
-          }
-          label=".ca"
-        />
-        <FormControlLabel
-          value=".com"
-          control={
-            <Radio
-              sx={{
-                "& .MuiSvgIcon-root": {
-                  fontSize: 28,
-                },
-                padding: 2,
-              }}
-            />
-          }
-          label=".com"
-        />
-      </RadioGroup>
-      <Tooltip
-        title={
-          <p className="p-3 tracking-wider text-sm">
-            .ca est recommandé pour les sites canadiens, .com en revanche
-            n'envoi aucune indication par rapport a la provenance du site
-          </p>
-        }
-        arrow
-      >
-        <IconButton>
-          <InfoIcon fontSize="large" />
-        </IconButton>
-      </Tooltip>
-    </fieldset>
-  );
 
   const content = (
     <>
@@ -111,7 +42,7 @@ const UrlForm = ({
       </Typography>
       <section className="flex flex-col md:flex-row justify-around items-center border border-slate-900/50 dark:border-slate-50/50 shadow-xs shadow-slate-900 dark:shadow-slate-50 rounded-lg p-5 m-5">
         <TextField
-          sx={{ width: "320px" }}
+          sx={{ maxWidth: "320px", width: "95%" }}
           id="url-keywords"
           label="Mots-Clés Url"
           variant="outlined"
@@ -121,7 +52,11 @@ const UrlForm = ({
             setUrlKeyword(e.target.value.toLowerCase());
           }}
         />
-        {radioContainer}
+        <UrlRadio
+          urlExtension={urlExtension}
+          setUrlExtension={setUrlExtension}
+          setErrorMessage={setErrorMessage}
+        />
       </section>
     </>
   );

@@ -64,10 +64,10 @@ const SocialMedia = ({
           <div className="w-full grid grid-cols-2 items-center">
             <div className="w-full grid grid-cols-2 items-center">
               <label
-                className="grid grid-cols-2 items-center gap-5 tracking-wider font-bold text-left"
+                className="grid grid-cols-2 items-center gap-5 font-bold text-left"
                 htmlFor="facebookCheck"
               >
-                Facebook
+                <span className="hidden md:grid">Facebook</span>
                 <FacebookIcon fontSize="large" />
               </label>
               <div className="checkbox-wrapper-31">
@@ -112,10 +112,11 @@ const SocialMedia = ({
           <div className="w-full grid grid-cols-2 items-center">
             <div className="w-full grid grid-cols-2 items-center">
               <label
-                className="grid grid-cols-2 items-center gap-5 tracking-wider font-bold text-left"
+                className="grid grid-cols-2 items-center gap-5 font-bold text-left"
                 htmlFor="instagramCheck"
               >
-                Instagram <InstagramIcon />
+                <span className="hidden md:grid">Instagram</span>
+                <InstagramIcon />
               </label>
               <div className="checkbox-wrapper-31">
                 <input
@@ -159,10 +160,11 @@ const SocialMedia = ({
           <div className="w-full grid grid-cols-2 items-center">
             <div className="w-full grid grid-cols-2 items-center">
               <label
-                className="grid grid-cols-2 items-center gap-5 tracking-wider font-bold text-left"
+                className="grid grid-cols-2 items-center gap-5 font-bold text-left"
                 htmlFor="xCheck"
               >
-                X <XIcon />
+                <span className="hidden md:grid">X</span>
+                <XIcon />
               </label>
               <div className="checkbox-wrapper-31">
                 <input
@@ -206,10 +208,11 @@ const SocialMedia = ({
           <div className="w-full grid grid-cols-2 items-center">
             <div className="w-full grid grid-cols-2 items-center">
               <label
-                className="grid grid-cols-2 items-center gap-5 tracking-wider font-bold text-left"
+                className="grid grid-cols-2 items-center gap-5 font-bold text-left"
                 htmlFor="linkedInCheck"
               >
-                LinkedIn <LinkedInIcon />
+                <span className="hidden md:grid">Linked In</span>
+                <LinkedInIcon />
               </label>
               <div className="checkbox-wrapper-31">
                 <input
@@ -253,10 +256,11 @@ const SocialMedia = ({
           <div className="w-full grid grid-cols-2 items-center">
             <div className="w-full grid grid-cols-2 items-center">
               <label
-                className="grid grid-cols-2 items-center gap-5 tracking-wider font-bold text-left"
+                className="grid grid-cols-2 items-center gap-5 font-bold text-left"
                 htmlFor="gitHubCheck"
               >
-                GitHub <GitHubIcon />
+                <span className="hidden md:grid">Git Hub</span>
+                <GitHubIcon />
               </label>
               <div className="checkbox-wrapper-31">
                 <input

@@ -4,6 +4,7 @@ import MetaForm from "./MetaForm";
 import OpenGraph from "./OpenGraph";
 import SocialMedia from "./SocialMedia";
 import Body from "./Body";
+import { Button } from "@mui/material";
 
 const Form = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -12,8 +13,6 @@ const Form = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [ogTitle, setOgTitle] = useState("");
-  const [ogType, setOgType] = useState("");
-  const [ogUrl, setOgUrl] = useState("");
   const [ogLocale, setOgLocale] = useState("");
   const [ogDescription, setOgDescription] = useState("");
   const [facebookUrl, setFacebookUrl] = useState("");
@@ -43,10 +42,6 @@ const Form = () => {
       <OpenGraph
         ogTitle={ogTitle}
         setOgTitle={setOgTitle}
-        ogType={ogType}
-        setOgType={setOgType}
-        ogUrl={ogUrl}
-        setOgUrl={setOgUrl}
         ogLocale={ogLocale}
         setOgLocale={setOgLocale}
         ogDescription={ogDescription}
@@ -73,6 +68,9 @@ const Form = () => {
         setCopyright={setCopyright}
       />
       <p>{errorMessage}</p>
+      <Button variant="contained" size="large" type="submit">
+        Soumettre
+      </Button>
     </form>
   );
 };

@@ -41,7 +41,7 @@ const App = () => {
         <main className="min-h-[80vh]">
           <Form />
         </main>
-        <footer className="h-[5vh] flex justify-center items-center gap-[5px] mb-3">
+        <footer className="h-[5vh] flex justify-center items-center gap-[5px] m-3">
           <Typography variant="body1">Créé par Régis Lessard</Typography>
           <Typography variant="body1">
             Tout droit réservé &copy; {year}

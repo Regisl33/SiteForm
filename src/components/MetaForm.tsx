@@ -1,7 +1,7 @@
-import { TextField, Typography, Button, styled } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { ChangeEvent } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { CloudUpload } from "@mui/icons-material";
+import ImageBtn from "./ImageBtn";
 
 type propsType = {
   title: string;
@@ -17,17 +17,7 @@ const MetaForm = ({
   setDescription,
 }: propsType) => {
   const darkTheme = useMediaQuery("(prefers-color-scheme: dark)");
-  const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-  });
+
   return (
     <>
       <Typography
@@ -70,21 +60,7 @@ const MetaForm = ({
             setDescription(e.target.value);
           }}
         />
-        <Typography variant="body1">Téléverser votre logo</Typography>
-        <Button
-          component="label"
-          role={undefined}
-          variant="outlined"
-          tabIndex={-1}
-          startIcon={<CloudUpload />}
-        >
-          Upload files
-          <VisuallyHiddenInput
-            type="file"
-            onChange={(event) => console.log(event.target.files)}
-            multiple
-          />
-        </Button>
+        <ImageBtn />
       </section>
     </>
   );
